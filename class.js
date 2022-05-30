@@ -1,42 +1,35 @@
-class student {
-  constructor(name, id) {
-    this.name = name;
-    this.id = id;
+class Animal {
+  constructor(name1, type123) {
+    this.animalName = name1;
+    this.type = type123;
   }
-  name() {
-    return this.name;
-  }
-  id() {
-    return this.id;
+
+  getAnimal() {
+    console.log("Call Animal");
+    console.log(this.animalName);
+    console.log(this.type);
   }
 }
 
-class dep extends student {
-  constructor(name, id, course_name, instructor) {
-    super(name, id);
-    this.course_name = course_name;
-    this.instructor = instructor;
+class Cat extends Animal{
+  constructor(name1, id1, animalNAME, animalType) {
+    super(animalNAME, animalType)
+    this.name2 = name1;
+    this.id2 = id1;
   }
-  getcourse() {
-    return this.course_name + "  " + this.instructor;
-  }
-  getinstructor() {
-    return " instructor name "+this.instructor + " and" +" student name " + this.name;
+
+  getCat() {
+    console.log("Call getName");
+    console.log(this.name2);
+    console.log(this.id2);
+    console.log(this.animalName);
+    console.log(this.type);
+
   }
 }
 
-// var y = new student("yousuf", 087);
-// console.log(y.name);
-// console.log(y.id);
-
-var z = new dep("yousuf", 087, "blockchain", "sir mustafa");
-
-console.log(z.name);
-console.log(z.id);
-console.log(z.course_name);
-console.log(z.instructor);
-
-// asd = z.course()
-// console.log(asd);
-console.log(z.getcourse());
-console.log(z.getinstructor());
+// const myAnimal = new Animal("Cat", 2)
+// myAnimal.getAnimal()
+const myCat = new Cat("Cat 123", 20000, "Animal", "u98cudu")
+myCat.getCat()
+myCat.getAnimal()

@@ -1,19 +1,18 @@
-const express = require("express");
-const app = express();
-const PORT = 4000;
+const express = require ("express")
+const app = express()
+const bodyParser = require ("body-parser")
+const logger = require ("morgan")
+const PORT = 5000
 
-app.get("/", (req, res) => {
-  res.send(`Hello World ${req.params.name}`);
-});
+app.use(bodyParser.json())
+app.use(logger("dev"))
 
-app.get("/home/:name/:id", (req, res) => {
-  res.send(`  ${req.params.name}  ${req.params.id}`);
-});
+const UserRouter = require("./Routes/User")
+app.use("/User", UserRouter)
 
-app.get("/:name/profile", (req, res) => {
-  res.send("Welcome to profile");
-});
+const authRouter = require("./Routes/auth")
+app.use("/", authRouter)
 
-app.listen(PORT, () => {
-  console.log(`Server is running at PORT => ${PORT}`);
-});
+app.listen(PORT,() => {
+    console.log(`Server is running at Port ${PORT}`);
+})

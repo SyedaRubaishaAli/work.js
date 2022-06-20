@@ -5,10 +5,6 @@
 const router = require("express").Router()
 // const bodyParser = require ("body-parser")
 
-router.get("/", (req, res) => {
-    res.send("Login")
-})
-
 // Making Routes
 router.get("/login",(req, res) => {
     res.send("login successfully")
